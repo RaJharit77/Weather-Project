@@ -1,0 +1,49 @@
+city,month,avg_temp,precipitation,wind_speed
+Paris,1,10,50,10
+Paris,2,12,55,11
+Paris,3,14,60,12
+Paris,4,16,65,13
+Paris,5,18,70,14
+Paris,6,20,75,15
+Paris,7,22,80,16
+Paris,8,24,85,17
+Paris,9,26,90,18
+Paris,10,28,95,19
+Paris,11,30,100,20
+Paris,12,32,105,21
+London,1,10,50,10
+London,2,12,55,11
+London,3,14,60,12
+London,4,16,65,13
+London,5,18,70,14
+London,6,20,75,15
+London,7,22,80,16
+London,8,24,85,17
+London,9,26,90,18
+London,10,28,95,19
+London,11,30,100,20
+London,12,32,105,21
+New York,1,10,50,10
+New York,2,12,55,11
+New York,3,14,60,12
+New York,4,16,65,13
+New York,5,18,70,14
+New York,6,20,75,15
+New York,7,22,80,16
+New York,8,24,85,17
+New York,9,26,90,18
+New York,10,28,95,19
+New York,11,30,100,20
+New York,12,32,105,21
+Tokyo,1,10,50,10
+Tokyo,2,12,55,11
+Tokyo,3,14,60,12
+Tokyo,4,16,65,13
+Tokyo,5,18,70,14
+Tokyo,6,20,75,15
+Tokyo,7,22,80,16
+Tokyo,8,24,85,17
+Tokyo,9,26,90,18
+Tokyo,10,28,95,19
+Tokyo,11,30,100,20
+Tokyo,12,32,105,21

@@ -1,0 +1,8 @@
+[2025-05-18T18:09:13.577+0300] {workday.py:41} WARNING - Could not import pandas. Holidays will not be considered.
+[2025-05-18T18:09:13.622+0300] {scheduler_job_runner.py:989} INFO - Starting the scheduler
+[2025-05-18T18:09:13.625+0300] {executor_loader.py:269} INFO - Loaded executor: :LocalExecutor:
+[2025-05-18T18:09:13.632+0300] {scheduler_job_runner.py:2128} INFO - Adopting or resetting orphaned tasks for active dag runs
+[2025-05-18T18:14:13.780+0300] {scheduler_job_runner.py:2128} INFO - Adopting or resetting orphaned tasks for active dag runs
+[2025-05-18T18:14:39.175+0300] {scheduler_job_runner.py:287} INFO - Exiting gracefully upon receiving signal 15
+[2025-05-18T18:14:39.176+0300] {local_executor.py:223} INFO - Shutting down LocalExecutor; waiting for running tasks to finish.  Signal again if you don't want to wait.
+[2025-05-18T18:14:39.177+0300] {scheduler_job_runner.py:1031} INFO - Exited execute loop

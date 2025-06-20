@@ -1,0 +1,9 @@
+[2025-05-18 18:09:13 +0300] [149715] [INFO] Starting gunicorn 23.0.0
+[2025-05-18 18:09:13 +0300] [149715] [INFO] Listening at: http://[::]:8793 (149715)
+[2025-05-18 18:09:13 +0300] [149715] [INFO] Using worker: sync
+[2025-05-18 18:09:13 +0300] [149716] [INFO] Booting worker with pid: 149716
+[2025-05-18 18:09:13 +0300] [149717] [INFO] Booting worker with pid: 149717
+[2025-05-18 18:14:39 +0300] [149716] [INFO] Worker exiting (pid: 149716)
+[2025-05-18 18:14:39 +0300] [149717] [INFO] Worker exiting (pid: 149717)
+[2025-05-18 18:14:39 +0300] [149715] [INFO] Handling signal: term
+[2025-05-18 18:14:39 +0300] [149715] [INFO] Shutting down: Master

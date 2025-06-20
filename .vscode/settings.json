@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./scripts"
+    ],
+    "postman.settings.dotenv-detection-notification-visibility": false
+}

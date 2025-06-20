@@ -1,0 +1,87 @@
+2025-05-18 15:24:34,834 INFO - Starting the scheduler
+2025-05-18 15:24:34,838 INFO - Loaded executor: :LocalExecutor:
+2025-05-18 15:24:34,845 INFO - Adopting or resetting orphaned tasks for active dag runs
+2025-05-18 15:29:34,909 INFO - Adopting or resetting orphaned tasks for active dag runs
+2025-05-18 15:34:34,942 INFO - Adopting or resetting orphaned tasks for active dag runs
+2025-05-18 15:39:34,987 INFO - Adopting or resetting orphaned tasks for active dag runs
+2025-05-18 15:44:35,044 INFO - Adopting or resetting orphaned tasks for active dag runs
+2025-05-18 15:49:35,082 INFO - Adopting or resetting orphaned tasks for active dag runs
+2025-05-18 15:54:34,904 INFO - checking for stale bundle versions locally
+2025-05-18 15:54:34,905 ERROR - Exception when executing SchedulerJob._run_scheduler_loop
+Traceback (most recent call last):
+  File "/home/rajharit/airflow_env/lib/python3.13/site-packages/airflow/jobs/scheduler_job_runner.py", line 1015, in _execute
+  File "/home/rajharit/airflow_env/lib/python3.13/site-packages/airflow/jobs/scheduler_job_runner.py", line 1326, in _run_scheduler_loop
+  File "/usr/lib/python3.13/sched.py", line 151, in run
+    action(*argument, **kwargs)
+    ~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "/home/rajharit/airflow_env/lib/python3.13/site-packages/airflow/utils/event_scheduler.py", line 40, in repeat
+  File "/home/rajharit/airflow_env/lib/python3.13/site-packages/airflow/dag_processing/bundles/base.py", line 221, in remove_stale_bundle_versions
+  File "/home/rajharit/airflow_env/lib/python3.13/site-packages/airflow/dag_processing/bundles/manager.py", line 110, in __init__
+  File "/home/rajharit/airflow_env/lib/python3.13/site-packages/airflow/dag_processing/bundles/manager.py", line 144, in parse_config
+  File "/home/rajharit/airflow_env/lib/python3.13/site-packages/airflow/utils/module_loading.py", line 39, in import_string
+  File "/usr/lib/python3.13/importlib/__init__.py", line 88, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1324, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'airflow.dag_processing.bundles.local'
+2025-05-18 15:54:34,907 INFO - Shutting down LocalExecutor; waiting for running tasks to finish.  Signal again if you don't want to wait.
+2025-05-18 15:54:34,908 INFO - Exited execute loop
+2025-05-18 17:53:53,833 WARNING - Could not import pandas. Holidays will not be considered.
+2025-05-18 17:53:53,876 INFO - Starting the scheduler
+2025-05-18 17:53:53,879 INFO - Loaded executor: :LocalExecutor:
+2025-05-18 17:53:53,886 INFO - Adopting or resetting orphaned tasks for active dag runs
+2025-05-18 17:56:17,072 ERROR - Exception when executing SchedulerJob._run_scheduler_loop
+Traceback (most recent call last):
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: dag_run
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/airflow/jobs/scheduler_job_runner.py", line 1015, in _execute
+    self._run_scheduler_loop()
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/airflow/jobs/scheduler_job_runner.py", line 1293, in _run_scheduler_loop
+    self._end_spans_of_externally_ended_ops(session)
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/airflow/jobs/scheduler_job_runner.py", line 1109, in _end_spans_of_externally_ended_ops
+    dag_runs_should_end: list[DagRun] = session.scalars(
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1778, in scalars
+    return self.execute(
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/orm/session.py", line 1717, in execute
+    result = conn._execute_20(statement, params or {}, execution_options)
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1710, in _execute_20
+    return meth(self, args_10style, kwargs_10style, execution_options)
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 334, in _execute_on_connection
+    return connection._execute_clauseelement(
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1577, in _execute_clauseelement
+    ret = self._execute_context(
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1953, in _execute_context
+    self._handle_dbapi_exception(
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 2134, in _handle_dbapi_exception
+    util.raise_(
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 211, in raise_
+    raise exception
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1910, in _execute_context
+    self.dialect.do_execute(
+  File "/home/rajharit/airflow_env/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 736, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: dag_run
+[SQL: SELECT dag_run.state, dag_run.id, dag_run.dag_id, dag_run.queued_at, dag_run.logical_date, dag_run.start_date, dag_run.end_date, dag_run.run_id, dag_run.creating_job_id, dag_run.run_type, dag_run.triggered_by, dag_run.conf, dag_run.data_interval_start, dag_run.data_interval_end, dag_run.run_after, dag_run.last_scheduling_decision, dag_run.log_template_id, dag_run.updated_at, dag_run.clear_number, dag_run.backfill_id, dag_run.bundle_version, dag_run.scheduled_by_job_id, dag_run.context_carrier, dag_run.span_status, dag_run.created_dag_version_id 
+FROM dag_run 
+WHERE dag_run.span_status = ?]
+[parameters: (<SpanStatus.SHOULD_END: 'should_end'>,)]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2025-05-18 17:56:17,079 INFO - Shutting down LocalExecutor; waiting for running tasks to finish.  Signal again if you don't want to wait.
+2025-05-18 17:56:17,080 INFO - Exited execute loop
+2025-05-18 18:09:13,577 WARNING - Could not import pandas. Holidays will not be considered.
+2025-05-18 18:09:13,622 INFO - Starting the scheduler
+2025-05-18 18:09:13,625 INFO - Loaded executor: :LocalExecutor:
+2025-05-18 18:09:13,632 INFO - Adopting or resetting orphaned tasks for active dag runs
+2025-05-18 18:14:13,780 INFO - Adopting or resetting orphaned tasks for active dag runs
+2025-05-18 18:14:39,175 INFO - Exiting gracefully upon receiving signal 15
+2025-05-18 18:14:39,176 INFO - Shutting down LocalExecutor; waiting for running tasks to finish.  Signal again if you don't want to wait.
+2025-05-18 18:14:39,177 INFO - Exited execute loop
