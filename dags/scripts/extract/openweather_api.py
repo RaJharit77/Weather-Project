@@ -3,12 +3,17 @@ import pandas as pd
 import os
 from pathlib import Path
 from datetime import datetime
-
-API_KEY = "6fb650f9a94642f038de6f1e10379da4"
+from airflow.models import Variable
 
 def fetch_current_weather(cities):
     data_dir = Path(__file__).parents[2] / 'data' / 'raw'
     data_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Récupération de la clé API depuis les variables Airflow
+    try:
+        API_KEY = Variable.get("API_KEY")
+    except:
+        raise ValueError("La clé API OpenWeatherMap n'est pas configurée dans les variables Airflow")
     
     current_data = []
     for city in cities:
@@ -17,6 +22,9 @@ def fetch_current_weather(cities):
             response = requests.get(url)
             data = response.json()
             
+            if response.status_code == 401:
+                raise ValueError("Clé API OpenWeatherMap invalide ou expirée")
+                
             if 'main' not in data:
                 print(f"Données incomplètes pour {city}")
                 continue
@@ -33,5 +41,5 @@ def fetch_current_weather(cities):
             print(f"Erreur pour {city}: {str(e)}")
     
     df = pd.DataFrame(current_data) if current_data else pd.DataFrame()
-    df.to_csv(data_dir / 'current_weather.csv', index=False)  # <-- LIGNE CRITIQUE AJOUTÉE
+    df.to_csv(data_dir / 'current_weather.csv', index=False)
     return df

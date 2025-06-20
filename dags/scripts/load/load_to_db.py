@@ -6,7 +6,7 @@ import logging
 
 def load_to_database():
     try:
-        # 1. Configuration des chemins
+        # Configuration des chemins
         base_dir = Path(__file__).parents[2]
         creds_path = base_dir / 'credential' / 'weather_tourism_project.json'
         data_path = base_dir / 'data' / 'outputs' / 'monthly_weather_scores.csv'
@@ -14,13 +14,13 @@ def load_to_database():
         logging.info(f"Chemin des credentials: {creds_path}")
         logging.info(f"Chemin des données: {data_path}")
 
-        # 2. Vérification des fichiers
+        # Vérification des fichiers
         if not creds_path.exists():
             raise FileNotFoundError(f"Fichier credentials introuvable : {creds_path}")
         if not data_path.exists():
             raise FileNotFoundError(f"Fichier de données introuvable : {data_path}")
 
-        # 3. Authentification
+        # Authentification
         scope = [
             'https://spreadsheets.google.com/feeds',
             'https://www.googleapis.com/auth/drive'
@@ -34,7 +34,7 @@ def load_to_database():
             logging.error(f"Erreur d'authentification: {str(auth_error)}")
             raise
 
-        # 4. Chargement des données
+        # Chargement des données
         try:
             df = pd.read_csv(data_path)
             logging.info(f"Données chargées : {len(df)} lignes")
@@ -42,7 +42,7 @@ def load_to_database():
             logging.error(f"Erreur de lecture des données: {str(data_error)}")
             raise
 
-        # 5. Mise à jour du Google Sheet
+        # Mise à jour du Google Sheet
         try:
             # Vérification de l'existence du spreadsheet
             spreadsheet_title = "Weather Tourism Data"
@@ -53,7 +53,7 @@ def load_to_database():
                 # Création si non trouvé
                 logging.info(f"Création du spreadsheet '{spreadsheet_title}'")
                 sheet = client.create(spreadsheet_title)
-                # Partage avec le compte de service
+                # Partage avec le compte de service dans google cloud
                 sheet.share('airflow-sheets-access@weather-tourism-project.iam.gserviceaccount.com', perm_type='user', role='writer')
             
             worksheet = sheet.get_worksheet(0) if len(sheet.worksheets()) > 0 else sheet.add_worksheet("Données", 100, 20)
