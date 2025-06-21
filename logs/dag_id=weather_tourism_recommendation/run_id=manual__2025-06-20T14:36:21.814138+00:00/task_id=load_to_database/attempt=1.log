@@ -1,0 +1,17 @@
+{"timestamp":"2025-06-20T14:36:30.556819","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-06-20T14:36:30.557783","level":"info","event":"Filling up the DagBag from /home/rajharit/airflow/dags/meteo_tourism_dags.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-20T14:36:31.102461Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-20T14:36:31.102708Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-20T14:36:31.102863Z","level":"info","event":"Current task name:load_to_database","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-20T14:36:31.102981Z","level":"info","event":"Dag name:weather_tourism_recommendation","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-20T14:36:31.053478","level":"info","event":"Chemin des credentials: /home/rajharit/airflow/dags/credential/weather_tourism_project.json","logger":"root"}
+{"timestamp":"2025-06-20T14:36:31.053659","level":"info","event":"Chemin des données: /home/rajharit/airflow/dags/data/outputs/monthly_weather_scores.csv","logger":"root"}
+{"timestamp":"2025-06-20T14:36:31.135660","level":"info","event":"Authentification réussie avec Google Sheets","logger":"root"}
+{"timestamp":"2025-06-20T14:36:31.141680","level":"info","event":"Données chargées : 48 lignes","logger":"root"}
+{"timestamp":"2025-06-20T14:36:34.542049","level":"info","event":"Spreadsheet 'Weather Tourism Data' trouvé","logger":"root"}
+{"timestamp":"2025-06-20T14:36:36.896788","level":"info","event":"Google Sheet mis à jour avec succès","logger":"root"}
+{"timestamp":"2025-06-20T14:36:36.897943","level":"info","event":"Done. Returned value was: True","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}
+{"timestamp":"2025-06-20T14:36:36.898219","level":"info","event":"Pushing xcom","ti":"RuntimeTaskInstance(id=UUID('01978dc4-e9cf-705d-9a34-455fd99b72e7'), task_id='load_to_database', dag_id='weather_tourism_recommendation', run_id='manual__2025-06-20T14:36:21.814138+00:00', try_number=1, map_index=-1, hostname='rajoharitiana-dellg155511', context_carrier=None, task=<Task(PythonOperator): load_to_database>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=1, start_date=datetime.datetime(2025, 6, 20, 14, 36, 30, 459775, tzinfo=TzInfo(UTC)), end_date=None, state=<TaskInstanceState.RUNNING: 'running'>, is_mapped=False, rendered_map_index=None)","logger":"task"}
+{"timestamp":"2025-06-20T14:36:37.084488Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-20T14:36:37.084681Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-20T14:36:37.084785Z","level":"info","event":"Task operator:<Task(PythonOperator): load_to_database>","chan":"stdout","logger":"task"}

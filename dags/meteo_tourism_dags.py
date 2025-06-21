@@ -34,14 +34,14 @@ with DAG(
     extract_historical = PythonOperator(
         task_id='extract_historical_data',
         python_callable=fetch_historical_data,
-        op_kwargs={'cities': ['Paris', 'London', 'New York', 'Tokyo']},
+        op_kwargs={'cities': ['Paris', 'London', 'New York', 'Tokyo', 'Antananarivo', 'Rio de Janeiro', 'Sydney']},
         dag=dag
     )
 
     extract_current = PythonOperator(
         task_id='extract_current_weather',
         python_callable=fetch_current_weather,
-        op_kwargs={'cities': ['Paris', 'London', 'New York', 'Tokyo']},
+        op_kwargs={'cities': ['Paris', 'London', 'New York', 'Tokyo', 'Antananarivo', 'Rio de Janeiro', 'Sydney']},
         dag=dag
     )
 
