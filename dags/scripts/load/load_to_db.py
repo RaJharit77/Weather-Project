@@ -8,7 +8,7 @@ def load_to_database():
     try:
         # Configuration des chemins
         base_dir = Path(__file__).parents[2]
-        creds_path = base_dir / 'credential' / 'weather_tourism_project.json'
+        creds_path = base_dir / 'credentials' / 'weather_tourism_project.json'
         data_path = base_dir / 'data' / 'outputs' / 'monthly_weather_scores.csv'
         
         logging.info(f"Chemin des credentials: {creds_path}")
