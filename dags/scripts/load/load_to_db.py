@@ -4,6 +4,13 @@ from oauth2client.service_account import ServiceAccountCredentials # type: ignor
 from pathlib import Path
 import logging
 
+SHEET_URLS = {
+    'monthly_scores': '1sPXRdUHMasRur_4Ip5Fw4CDsta9e9KStYJSoVt7asgI',
+    'merged_data': '1IyPIhvDhH51dDtgNe-CW81wnOhBwOt13_mppf9a_ozk',
+    'historical': '18cfFKsLZTla0EkeRdO5TyFfmXv683v1m4G3AJAOV3Y4',
+    'current': '1mz0ubMdm056Cj8mTAR2hk-bSMdzA5thvLw4g6thP6Ag'
+}
+
 def load_to_database():
     try:
         # Configuration des chemins
@@ -42,21 +49,13 @@ def load_to_database():
             logging.error(f"Erreur de lecture des données: {str(data_error)}")
             raise
 
-        # Mise à jour du Google Sheet
+        # Mise à jour du Google Sheet existant
         try:
-            # Vérification de l'existence du spreadsheet
-            spreadsheet_title = "Weather Tourism Data"
-            try:
-                sheet = client.open(spreadsheet_title)
-                logging.info(f"Spreadsheet '{spreadsheet_title}' trouvé")
-            except gspread.SpreadsheetNotFound:
-                # Création si non trouvé
-                logging.info(f"Création du spreadsheet '{spreadsheet_title}'")
-                sheet = client.create(spreadsheet_title)
-                # Partage avec le compte de service dans google cloud
-                sheet.share('airflow-sheets-access@weather-tourism-project.iam.gserviceaccount.com', perm_type='user', role='writer')
+            # Ouvrir le spreadsheet existant
+            sheet = client.open_by_key(SHEET_URLS['monthly_scores'])
+            worksheet = sheet.get_worksheet(0)
             
-            worksheet = sheet.get_worksheet(0) if len(sheet.worksheets()) > 0 else sheet.add_worksheet("Données", 100, 20)
+            # Effacer et mettre à jour les données
             worksheet.clear()
             worksheet.update([df.columns.values.tolist()] + df.values.tolist())
             logging.info("Google Sheet mis à jour avec succès")

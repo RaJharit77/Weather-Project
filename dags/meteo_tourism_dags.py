@@ -11,6 +11,7 @@ from scripts.extract.openweather_api import fetch_current_weather
 from scripts.transform.clean_data import clean_and_merge
 from scripts.transform.calculate_scores import calculate_weather_scores
 from scripts.load.load_to_db import load_to_database
+from scripts.load.update_sheets import update_all_sheets
 
 default_args = {
     'owner': 'airflow',
@@ -64,6 +65,14 @@ with DAG(
         python_callable=load_to_database,
         dag=dag
     )
+    
+    # Tâche de mise à jour complète des sheets
+    update_sheets = PythonOperator(
+        task_id='update_all_sheets',
+        python_callable=update_all_sheets,
+        dag=dag
+    )
+
 
     # Orchestration des tâches
-    [extract_historical, extract_current] >> clean_data >> calculate_scores >> load_data
+    [extract_historical, extract_current] >> clean_data >> calculate_scores >> [load_data, update_sheets]
