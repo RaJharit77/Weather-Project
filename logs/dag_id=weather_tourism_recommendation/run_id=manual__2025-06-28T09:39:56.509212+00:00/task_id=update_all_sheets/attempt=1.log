@@ -1,0 +1,16 @@
+{"timestamp":"2025-06-28T09:40:25.265345","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-06-28T09:40:25.266588","level":"info","event":"Filling up the DagBag from /home/rajharit/airflow/dags/meteo_tourism_dags.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-06-28T09:40:25.873850Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-28T09:40:25.874073Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-28T09:40:25.874190Z","level":"info","event":"Current task name:update_all_sheets","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-28T09:40:25.874297Z","level":"info","event":"Dag name:weather_tourism_recommendation","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-28T09:40:29.539245","level":"info","event":"Feuille current mise à jour avec succès","logger":"root"}
+{"timestamp":"2025-06-28T09:40:32.391919","level":"info","event":"Feuille historical mise à jour avec succès","logger":"root"}
+{"timestamp":"2025-06-28T09:40:34.876215","level":"info","event":"Feuille merged_data mise à jour avec succès","logger":"root"}
+{"timestamp":"2025-06-28T09:40:37.222112","level":"info","event":"Feuille monthly_scores mise à jour avec succès","logger":"root"}
+{"timestamp":"2025-06-28T09:40:37.222444","level":"info","event":"Tous les Google Sheets ont été mis à jour","logger":"root"}
+{"timestamp":"2025-06-28T09:40:37.223596","level":"info","event":"Done. Returned value was: True","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}
+{"timestamp":"2025-06-28T09:40:37.223951","level":"info","event":"Pushing xcom","ti":"RuntimeTaskInstance(id=UUID('0197b5e8-67f9-7cf0-ad3f-5dda3d313deb'), task_id='update_all_sheets', dag_id='weather_tourism_recommendation', run_id='manual__2025-06-28T09:39:56.509212+00:00', try_number=1, map_index=-1, hostname='rajoharitiana-dellg155511', context_carrier=None, task=<Task(PythonOperator): update_all_sheets>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=1, start_date=datetime.datetime(2025, 6, 28, 9, 40, 25, 172967, tzinfo=TzInfo(UTC)), end_date=None, state=<TaskInstanceState.RUNNING: 'running'>, is_mapped=False, rendered_map_index=None)","logger":"task"}
+{"timestamp":"2025-06-28T09:40:37.301134Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-28T09:40:37.301398Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","chan":"stdout","logger":"task"}
+{"timestamp":"2025-06-28T09:40:37.301521Z","level":"info","event":"Task operator:<Task(PythonOperator): update_all_sheets>","chan":"stdout","logger":"task"}

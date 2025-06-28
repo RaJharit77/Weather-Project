@@ -1,47 +1,57 @@
 import pandas as pd
 import requests
 import os
+import math
+import random
 from pathlib import Path
+from datetime import datetime, timedelta
 
 def fetch_historical_data(cities):
     """
     Récupère les données historiques depuis une source externe (ex: Kaggle)
-    et génère des projections sur 3 à 7 ans
+    Maintenant avec 7 ans de données historiques au lieu de 1 an
     """
     data_dir = Path(__file__).parents[2] / 'data' / 'raw'
     data_dir.mkdir(parents=True, exist_ok=True)
     
     historical_data = []
+    current_year = datetime.now().year
     
     for city in cities:
-        # Simulation de données historiques avec projection sur 3 à 7 ans
-        years = range(2023, 2030)  # 7 ans de projection (2023-2029)
-        
-        monthly_data = []
-        for year in years:
+        # Création de données pour les 7 dernières années
+        for year in range(current_year - 7, current_year):
             for month in range(1, 13):
-                # Base de données simulées avec légères variations
-                base_temp = 10 + month * 2
-                base_precip = 50 + month * 5
-                base_wind = 10 + month
+                # Simulation de données réalistes avec variations saisonnières
+                base_temp = {
+                    'Paris': 10,
+                    'London': 9,
+                    'New York': 12,
+                    'Tokyo': 15,
+                    'Antananarivo': 20,
+                    'Rio de Janeiro': 22,
+                    'Sydney': 17
+                }.get(city, 15)
                 
-                # Ajout de variations aléatoires pour chaque année
-                temp = base_temp + (year - 2023) * 0.5  # Légère augmentation annuelle
-                precip = base_precip + (year - 2023) * 2  # Légère augmentation des précipitations
-                wind = base_wind + (year - 2023) * 0.3  # Légère augmentation du vent
+                # Variation saisonnière
+                seasonal_var = -8 * math.cos(2 * math.pi * (month - 1) / 12)
                 
-                monthly_data.append({
+                # Variation aléatoire
+                random_var = random.uniform(-3, 3)
+                
+                avg_temp = base_temp + seasonal_var + random_var
+                precipitation = max(0, 50 + 30 * math.sin(2 * math.pi * (month - 6) / 12) + random.uniform(-20, 20))
+                wind_speed = 10 + random.uniform(-2, 2)
+                
+                historical_data.append({
                     'city': city,
-                    'date': f'{year}-{month:02d}-01',
+                    'date': f"{year}-{month:02d}-01",
                     'month': month,
-                    'avg_temp': round(temp, 1),
-                    'precipitation': round(precip, 1),
-                    'wind_speed': round(wind, 1)
+                    'year': year,
+                    'avg_temp': round(avg_temp, 1),
+                    'precipitation': round(precipitation, 1),
+                    'wind_speed': round(wind_speed, 1)
                 })
-        
-        df = pd.DataFrame(monthly_data)
-        historical_data.append(df)
     
-    full_df = pd.concat(historical_data)
+    full_df = pd.DataFrame(historical_data)
     full_df.to_csv(data_dir / 'historical_weather.csv', index=False)
     return full_df
