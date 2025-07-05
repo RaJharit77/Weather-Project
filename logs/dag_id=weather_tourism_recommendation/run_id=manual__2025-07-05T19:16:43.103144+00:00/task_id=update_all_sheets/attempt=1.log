@@ -1,0 +1,18 @@
+{"timestamp":"2025-07-05T19:17:46.425739","level":"info","event":"DAG bundles loaded: dags-folder, example_dags","logger":"airflow.dag_processing.bundles.manager.DagBundlesManager"}
+{"timestamp":"2025-07-05T19:17:46.427412","level":"info","event":"Filling up the DagBag from /home/rajharit/airflow/dags/meteo_tourism_dags.py","logger":"airflow.models.dagbag.DagBag"}
+{"timestamp":"2025-07-05T19:17:47.053539Z","level":"info","event":"Task instance is in running state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-05T19:17:47.053974Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.QUEUED","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-05T19:17:47.054215Z","level":"info","event":"Current task name:update_all_sheets","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-05T19:17:47.054433Z","level":"info","event":"Dag name:weather_tourism_recommendation","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-05T19:17:57.125521","level":"warning","event":"Retrying (Retry(total=2, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f70b1c400d0>: Failed to resolve 'oauth2.googleapis.com' ([Errno -3] Temporary failure in name resolution)\")': /token","logger":"urllib3.connectionpool"}
+{"timestamp":"2025-07-05T19:18:07.136727","level":"warning","event":"Retrying (Retry(total=1, connect=None, read=None, redirect=None, status=None)) after connection broken by 'NameResolutionError(\"<urllib3.connection.HTTPSConnection object at 0x7f70b1c40280>: Failed to resolve 'oauth2.googleapis.com' ([Errno -3] Temporary failure in name resolution)\")': /token","logger":"urllib3.connectionpool"}
+{"timestamp":"2025-07-05T19:18:28.451185","level":"info","event":"Feuille current mise à jour avec succès","logger":"root"}
+{"timestamp":"2025-07-05T19:18:54.870904","level":"info","event":"Feuille historical mise à jour avec succès","logger":"root"}
+{"timestamp":"2025-07-05T19:19:39.366105","level":"info","event":"Feuille merged_data mise à jour avec succès","logger":"root"}
+{"timestamp":"2025-07-05T19:20:19.434061","level":"info","event":"Feuille monthly_scores mise à jour avec succès","logger":"root"}
+{"timestamp":"2025-07-05T19:20:19.434351","level":"info","event":"Tous les Google Sheets ont été mis à jour","logger":"root"}
+{"timestamp":"2025-07-05T19:20:19.434844","level":"info","event":"Done. Returned value was: True","logger":"airflow.task.operators.airflow.providers.standard.operators.python.PythonOperator"}
+{"timestamp":"2025-07-05T19:20:19.435153","level":"info","event":"Pushing xcom","ti":"RuntimeTaskInstance(id=UUID('0197dc04-fb40-70a6-8783-cb4770b3978d'), task_id='update_all_sheets', dag_id='weather_tourism_recommendation', run_id='manual__2025-07-05T19:16:43.103144+00:00', try_number=1, map_index=-1, hostname='rajoharitiana-dellg155511', context_carrier=None, task=<Task(PythonOperator): update_all_sheets>, bundle_instance=LocalDagBundle(name=dags-folder), max_tries=1, start_date=datetime.datetime(2025, 7, 5, 19, 17, 46, 291290, tzinfo=TzInfo(UTC)), end_date=None, state=<TaskInstanceState.RUNNING: 'running'>, is_mapped=False, rendered_map_index=None)","logger":"task"}
+{"timestamp":"2025-07-05T19:20:19.506787Z","level":"info","event":"Task instance in success state","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-05T19:20:19.507204Z","level":"info","event":" Previous state of the Task instance: TaskInstanceState.RUNNING","chan":"stdout","logger":"task"}
+{"timestamp":"2025-07-05T19:20:19.507519Z","level":"info","event":"Task operator:<Task(PythonOperator): update_all_sheets>","chan":"stdout","logger":"task"}
