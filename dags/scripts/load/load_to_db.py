@@ -1,15 +1,12 @@
 import gspread # type: ignore
 import pandas as pd
+from airflow.models import Variable
+import json
 from oauth2client.service_account import ServiceAccountCredentials # type: ignore
 from pathlib import Path
 import logging
 
-SHEET_URLS = {
-    'monthly_scores': '1sPXRdUHMasRur_4Ip5Fw4CDsta9e9KStYJSoVt7asgI',
-    'merged_data': '1IyPIhvDhH51dDtgNe-CW81wnOhBwOt13_mppf9a_ozk',
-    'historical': '18cfFKsLZTla0EkeRdO5TyFfmXv683v1m4G3AJAOV3Y4',
-    'current': '1mz0ubMdm056Cj8mTAR2hk-bSMdzA5thvLw4g6thP6Ag'
-}
+SHEET_URLS = json.loads(Variable.get("GOOGLE_SHEETS_URLS")) 
 
 def load_to_database():
     try:
